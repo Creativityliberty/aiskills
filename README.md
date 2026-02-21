@@ -14,7 +14,7 @@ Each skill is a folder with a `SKILL.md` file:
     └── SKILL.md    ← frontmatter (name + description) + workflow
 ```
 
-## Available Skills (17)
+## Available Skills (18)
 
 ### 🔷 Meta / Orchestration
 
@@ -34,6 +34,7 @@ Each skill is a folder with a `SKILL.md` file:
 | [`artifact-maker`](./skills/artifact-maker/) | Multi-format output engine — MD, JSON, PDF, charts, audio (TTS), video, with manifest tracking |
 | [`pocketflow`](./skills/pocketflow/) | Build LLM-powered workflows with PocketFlow — nodes, flows, async, batch, retries |
 | [`num-agents`](./skills/num-agents/) | Build AI agents with the Nüm Agents SDK — universe-based architecture, YAML specs |
+| [`agent-pocketflow`](./skills/agent-pocketflow/) | **Hybrid example agent** — PocketFlow + Nüm Agents doc-update agent with multi-provider LLM, ASCII dashboard |
 
 ### 🛠️ Dev Tools
 
