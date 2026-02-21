@@ -14,19 +14,71 @@ Each skill is a folder with a `SKILL.md` file:
     └── SKILL.md    ← frontmatter (name + description) + workflow
 ```
 
-## Available Skills
+## Available Skills (17)
+
+### 🔷 Meta / Orchestration
 
 | Skill | Description |
 |-------|-------------|
-| [`num-agents`](./skills/num-agents/) | Build AI agents with the Nüm Agents SDK — universe-based architecture, YAML specs, nodes, flows, hooks, conditional branching |
-| [`skill-architect`](./skills/skill-architect/) | Multi-agent pipeline (Architect → Refactorer → Reviewer → Security → Docs) to audit and improve any skill |
-| [`ui-style-generator`](./skills/ui-style-generator/) | Generate a full UI Design System — color tokens (light/dark), typography, spacing, CSS vars, Markdown styleguide |
-| [`commit`](./skills/commit/) | Create well-formatted git commits with staging, message writing, and conventional commits |
-| [`review-pr`](./skills/review-pr/) | Review GitHub Pull Requests — bugs, security, design, tests — with structured output |
-| [`skill-creator`](./skills/skill-creator/) | Guide for creating new skills: structure, frontmatter, bundled resources, best practices |
+| [`nanoclaw-forge`](./skills/nanoclaw-forge/) | **Unified meta-skill** — fuses ALL skills into a 5-phase pipeline: PLAN → MAP → BUILD → RUN → SHIP |
+| [`orchestra-forge`](./skills/orchestra-forge/) | Full-stack agent builder: Nüm Agents spec → PocketFlow code → Skill Architect audit |
+| [`kernel-forge`](./skills/kernel-forge/) | Multi-tenant kernel builder using Os-frame patterns — policy gate, idempotency, SSE streaming |
+| [`flow-orchestrator`](./skills/flow-orchestrator/) | Pipeline runtime with tracing, snapshots, pause/resume, and execution visualization |
+
+### 🧩 Components
+
+| Skill | Description |
+|-------|-------------|
+| [`blueprint-maker`](./skills/blueprint-maker/) | Generate structured blueprints for any domain — auto-detect business/product/research/education/engineering |
+| [`dag-taskview`](./skills/dag-taskview/) | Visualize tasks as DAGs — dependency tracking, critical path, Mermaid diagrams, progress persistence |
+| [`artifact-maker`](./skills/artifact-maker/) | Multi-format output engine — MD, JSON, PDF, charts, audio (TTS), video, with manifest tracking |
 | [`pocketflow`](./skills/pocketflow/) | Build LLM-powered workflows with PocketFlow — nodes, flows, async, batch, retries |
-| [`session-start-hook`](./skills/session-start-hook/) | Creates SessionStart hooks to install dependencies in Claude Code on the web |
-| [`keybindings-help`](./skills/keybindings-help/) | Customize keyboard shortcuts in `~/.claude/keybindings.json` |
+| [`num-agents`](./skills/num-agents/) | Build AI agents with the Nüm Agents SDK — universe-based architecture, YAML specs |
+
+### 🛠️ Dev Tools
+
+| Skill | Description |
+|-------|-------------|
+| [`skill-architect`](./skills/skill-architect/) | Multi-agent pipeline (Architect → Refactorer → Reviewer → Security → Docs) to audit skills |
+| [`skill-creator`](./skills/skill-creator/) | Guide for creating new skills: structure, frontmatter, best practices |
+| [`skill-ide-setup`](./skills/skill-ide-setup/) | Configure projects for AI-powered IDEs (Cursor, Windsurf, Trae, Cline) |
+| [`ui-style-generator`](./skills/ui-style-generator/) | Generate full UI Design Systems — color tokens, typography, spacing, CSS vars |
+| [`commit`](./skills/commit/) | Create well-formatted git commits with conventional commit format |
+| [`review-pr`](./skills/review-pr/) | Review GitHub Pull Requests — bugs, security, design, tests |
+
+### ⚙️ System
+
+| Skill | Description |
+|-------|-------------|
+| [`session-start-hook`](./skills/session-start-hook/) | SessionStart hooks to install dependencies automatically |
+| [`keybindings-help`](./skills/keybindings-help/) | Customize keyboard shortcuts |
+
+## Skill Chain
+
+```mermaid
+flowchart TD
+    NF["🔷 nanoclaw-forge"] ==> BP & DAG & BUILD & FO & AM
+
+    subgraph PLAN["Phase 1"]
+        BP[blueprint-maker]
+    end
+    subgraph MAP["Phase 2"]
+        DAG[dag-taskview]
+    end
+    subgraph BUILD["Phase 3"]
+        OF[orchestra-forge] --> PF[pocketflow]
+        OF --> NA[num-agents]
+        KF[kernel-forge] --> PF
+        KF --> NA
+    end
+    subgraph RUN["Phase 4"]
+        FO[flow-orchestrator]
+    end
+    subgraph SHIP["Phase 5"]
+        AM[artifact-maker]
+        SA[skill-architect]
+    end
+```
 
 ## Install
 
@@ -71,53 +123,4 @@ description: One sentence describing when Claude should use this skill.
 Detailed workflow instructions for Claude...
 ```
 
-3. PR welcome!
-
-## Structure
-
-```
-aiskills/
-├── README.md
-├── install.sh
-└── skills/
-    ├── num-agents/
-    │   ├── SKILL.md
-    │   ├── scripts/
-    │   │   └── scaffold_agent.py    ← interactive CLI: name+universes → agent.yaml + agent.py
-    │   ├── references/
-    │   │   ├── universe-catalog.md  ← all universes with descriptions + selection guide
-    │   │   ├── flow-patterns.md     ← Node, Flow, hooks, conditional, async patterns
-    │   │   └── agent-spec-schema.md ← full YAML schema + 5 real-world examples
-    │   └── assets/
-    │       └── example-agent.yaml   ← copy-paste starter spec
-    ├── skill-architect/
-    │   ├── SKILL.md
-    │   ├── examples/
-    │   │   ├── commit-skill-pipeline.md         ← example pipeline run on commit skill
-    │   │   └── ui-style-generator-pipeline.md   ← example pipeline run on ui-style skill
-    │   ├── scripts/
-    │   │   └── skill_pipeline.py    ← static pre-analysis + data models
-    │   └── references/
-    │       └── agent-roles.md       ← detailed checklists per agent role
-    ├── ui-style-generator/
-    │   ├── SKILL.md
-    │   ├── scripts/
-    │   │   └── generate_markdown.ts   ← formats JSON → Markdown styleguide
-    │   └── references/
-    │       ├── design-system-schema.md
-    │       └── markdown-template.md
-    ├── commit/
-    │   └── SKILL.md
-    ├── review-pr/
-    │   └── SKILL.md
-    ├── skill-creator/
-    │   └── SKILL.md
-    ├── pocketflow/
-    │   ├── SKILL.md
-    │   └── scripts/
-    │       └── pocketflow.py   ← bundled library
-    ├── session-start-hook/
-    │   └── SKILL.md
-    └── keybindings-help/
-        └── SKILL.md
-```
+1. PR welcome!
