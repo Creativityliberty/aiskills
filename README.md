@@ -18,6 +18,7 @@ Each skill is a folder with a `SKILL.md` file:
 
 | Skill | Description |
 |-------|-------------|
+| [`ui-style-generator`](./skills/ui-style-generator/) | Generate a full UI Design System — color tokens (light/dark), typography, spacing, CSS vars, Markdown styleguide |
 | [`commit`](./skills/commit/) | Create well-formatted git commits with staging, message writing, and conventional commits |
 | [`review-pr`](./skills/review-pr/) | Review GitHub Pull Requests — bugs, security, design, tests — with structured output |
 | [`skill-creator`](./skills/skill-creator/) | Guide for creating new skills: structure, frontmatter, bundled resources, best practices |
@@ -77,6 +78,13 @@ aiskills/
 ├── README.md
 ├── install.sh
 └── skills/
+    ├── ui-style-generator/
+    │   ├── SKILL.md
+    │   ├── scripts/
+    │   │   └── generate_markdown.ts   ← formats JSON → Markdown styleguide
+    │   └── references/
+    │       ├── design-system-schema.md
+    │       └── markdown-template.md
     ├── commit/
     │   └── SKILL.md
     ├── review-pr/
