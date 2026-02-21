@@ -18,6 +18,7 @@ Each skill is a folder with a `SKILL.md` file:
 
 | Skill | Description |
 |-------|-------------|
+| [`skill-architect`](./skills/skill-architect/) | Multi-agent pipeline (Architect → Refactorer → Reviewer → Security → Docs) to audit and improve any skill |
 | [`ui-style-generator`](./skills/ui-style-generator/) | Generate a full UI Design System — color tokens (light/dark), typography, spacing, CSS vars, Markdown styleguide |
 | [`commit`](./skills/commit/) | Create well-formatted git commits with staging, message writing, and conventional commits |
 | [`review-pr`](./skills/review-pr/) | Review GitHub Pull Requests — bugs, security, design, tests — with structured output |
@@ -78,6 +79,12 @@ aiskills/
 ├── README.md
 ├── install.sh
 └── skills/
+    ├── skill-architect/
+    │   ├── SKILL.md
+    │   ├── scripts/
+    │   │   └── skill_pipeline.py    ← static pre-analysis + data models
+    │   └── references/
+    │       └── agent-roles.md       ← detailed checklists per agent role
     ├── ui-style-generator/
     │   ├── SKILL.md
     │   ├── scripts/
