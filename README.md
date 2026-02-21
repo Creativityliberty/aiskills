@@ -18,6 +18,10 @@ Each skill is a folder with a `SKILL.md` file:
 
 | Skill | Description |
 |-------|-------------|
+| [`commit`](./skills/commit/) | Create well-formatted git commits with staging, message writing, and conventional commits |
+| [`review-pr`](./skills/review-pr/) | Review GitHub Pull Requests — bugs, security, design, tests — with structured output |
+| [`skill-creator`](./skills/skill-creator/) | Guide for creating new skills: structure, frontmatter, bundled resources, best practices |
+| [`pocketflow`](./skills/pocketflow/) | Build LLM-powered workflows with PocketFlow — nodes, flows, async, batch, retries |
 | [`session-start-hook`](./skills/session-start-hook/) | Creates SessionStart hooks to install dependencies in Claude Code on the web |
 | [`keybindings-help`](./skills/keybindings-help/) | Customize keyboard shortcuts in `~/.claude/keybindings.json` |
 
@@ -73,6 +77,16 @@ aiskills/
 ├── README.md
 ├── install.sh
 └── skills/
+    ├── commit/
+    │   └── SKILL.md
+    ├── review-pr/
+    │   └── SKILL.md
+    ├── skill-creator/
+    │   └── SKILL.md
+    ├── pocketflow/
+    │   ├── SKILL.md
+    │   └── scripts/
+    │       └── pocketflow.py   ← bundled library
     ├── session-start-hook/
     │   └── SKILL.md
     └── keybindings-help/
