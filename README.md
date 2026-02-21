@@ -1,6 +1,6 @@
 # AI Skills Collection
 
-A collection of skills for [Claude Code](https://claude.ai/code) — importable directly into your IDE, similar to how [BMAD-METHOD](https://github.com/bmadcode/BMAD-METHOD) works for AI agents.
+A collection of skills for [Claude Code](https://claude.ai/code) — importable directly into your IDE
 
 ## What are Skills?
 
@@ -14,7 +14,7 @@ Each skill is a folder with a `SKILL.md` file:
     └── SKILL.md    ← frontmatter (name + description) + workflow
 ```
 
-## Available Skills (17)
+## Available Skills (19)
 
 ### 🔷 Meta / Orchestration
 
@@ -34,6 +34,7 @@ Each skill is a folder with a `SKILL.md` file:
 | [`artifact-maker`](./skills/artifact-maker/) | Multi-format output engine — MD, JSON, PDF, charts, audio (TTS), video, with manifest tracking |
 | [`pocketflow`](./skills/pocketflow/) | Build LLM-powered workflows with PocketFlow — nodes, flows, async, batch, retries |
 | [`num-agents`](./skills/num-agents/) | Build AI agents with the Nüm Agents SDK — universe-based architecture, YAML specs |
+| [`agent-pocketflow`](./skills/agent-pocketflow/) | **Hybrid example agent** — PocketFlow + Nüm Agents doc-update agent with multi-provider LLM, ASCII dashboard |
 
 ### 🛠️ Dev Tools
 
@@ -45,6 +46,7 @@ Each skill is a folder with a `SKILL.md` file:
 | [`ui-style-generator`](./skills/ui-style-generator/) | Generate full UI Design Systems — color tokens, typography, spacing, CSS vars |
 | [`commit`](./skills/commit/) | Create well-formatted git commits with conventional commit format |
 | [`review-pr`](./skills/review-pr/) | Review GitHub Pull Requests — bugs, security, design, tests |
+| [`mcp-builder`](./skills/mcp-builder/) | Build production MCP servers — 4-phase workflow, TypeScript/Python SDK guides, evaluation harness |
 
 ### ⚙️ System
 
